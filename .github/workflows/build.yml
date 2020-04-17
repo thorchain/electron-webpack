@@ -18,8 +18,8 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 10
-
- - name: yarn install
+          
+      - name: yarn install
         run: |
           yarn install
       - name: Publish
