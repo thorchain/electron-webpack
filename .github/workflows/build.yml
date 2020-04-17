@@ -29,13 +29,13 @@ jobs:
 
       - name: Publish window and linux binaries
         if: runner.os != 'macOS'
-        run: yarn dist
+        run: yarn dist:dir
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Publish mac binaries
         if: runner.os == 'macOS'
-        run: yarn dist
+        run: yarn dist:dir --publish=always 
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
