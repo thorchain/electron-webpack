@@ -20,11 +20,12 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 10
+          
       - name: yarn install
         run: |
           yarn install
 
-       - name: Build/release Electron app
+      - name: Build/release Electron app
         uses: samuelmeuli/action-electron-builder@master
         with:
           github_token: ${{ secrets.github_token }} # Automatically generated
