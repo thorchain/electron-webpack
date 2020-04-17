@@ -1,4 +1,4 @@
-name: Text Build
+name: Build Unsigned
 
 on:
   push:
@@ -20,6 +20,9 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: "11.9.0"
+  
+      - name: Install yarn
+        run: npm install yarn --no-save
 
       - name: Install dependencies
         run: yarn
@@ -35,9 +38,14 @@ jobs:
         run: yarn dist
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Remaining files
+        run: ls .
+        shell: bash
+        working-directory: ./release/
 
-      - name: Upload artifacts
+      - name: Upload Production Artifacts
         uses: actions/upload-artifact@v1
         with:
-          name: ${{ runner.OS }}
-          path: dist/electron-mat/Packaged
+          name: ${{ runner.OS }}-production
+          path: release
