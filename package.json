@@ -1,6 +1,6 @@
 {
   "name": "electron-webpack",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "license": "MIT",
   "author": "thorchain",
   "scripts": {
@@ -8,7 +8,8 @@
     "compile": "electron-webpack",
     "dist": "yarn compile && electron-builder",
     "dist:dir": "yarn dist --dir -c.compression=store -c.mac.identity=null",
-    "build": "yarn compile"
+    "build": "yarn compile",
+    "release": "build"
   },
   "dependencies": {
     "source-map-support": "^0.5.16"
